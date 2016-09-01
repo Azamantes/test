@@ -11,6 +11,6 @@ const config = {
 request();
 
 function request() {
-    http.get(config);
+    http.get(config, response => {});
     return request();
 }
