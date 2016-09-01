@@ -8,6 +8,8 @@ const config = {
     agent: 'false',
 };
 
+request();
+
 function request() {
     http.get(config, handler);
     return request();
