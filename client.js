@@ -5,12 +5,13 @@ const config = {
     post: 8080,
     path: '/',
     method: 'GET',
-    agent: 'false',
 };
 
 request();
 
 function request() {
-    http.get(config, response => {});
-    return request();
+    http.get(config, response => {
+        response.on('end', () => {});
+    });
+    process.nextTick(request);
 }
