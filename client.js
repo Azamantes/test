@@ -10,7 +10,7 @@ let connections = 0;
 
 request();
 
-setTimeout(() => {
+setInterval(() => {
     console.log('Connections:', connections);
     connections = 0;
 }, 1000);
