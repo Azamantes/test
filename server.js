@@ -1,11 +1,12 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
 const data = JSON.stringify({
     id: 2,
     name: 'Mateusz',
 });
 
-const server = http.createServer((request, response) => {
-    response.end(data);
+app.get('/', (a, b) => {
+    b.send(data);
 });
-server.listen(80, '192.168.5.10');
+app.listen(8080);
