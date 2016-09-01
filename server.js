@@ -1,12 +1,19 @@
-const express = require('express');
-const app = express();
+const http = require('http');
+const data = 'Hello World!';
+let i = 0;
 
-const data = JSON.stringify({
-    id: 2,
-    name: 'Mateusz',
+setInterval(() => {
+    console.log('Connections:', i);
+    i = 0;
 });
 
-app.get('/', (a, b) => {
-    b.send(data);
+const header = {
+    'Content-Type': 'text/plain',
+    'Content-Length': data.length,
+};
+http.createServer((request, response) => {
+    ++i;
+    b.writeHead(header);
+    b.write(data);
+    b.end();
 });
-app.listen(8080);
